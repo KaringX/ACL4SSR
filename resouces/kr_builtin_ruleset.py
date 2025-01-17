@@ -234,6 +234,15 @@ OPT_RULESET_GROUPS['cn'] = {
 }
 ##end china
 
+##start ru
+OPT_RULESET_GROUPS['ru'] = OPT_RULESET_GROUPS['default'].copy()
+OPT_RULESET_GROUPS['ru']['𐰁 antizapret'] = {
+    'default': 'on',
+    'outbound': 'selector_out',
+    'rules': ['geosite:antizapret'],
+}
+##end ru
+
 ##start iran
 OPT_RULESET_GROUPS['ir'] = OPT_RULESET_GROUPS['default'].copy()
 OPT_RULESET_GROUPS['ir']['🛑 Adblock'] = {
