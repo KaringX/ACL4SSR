@@ -240,8 +240,8 @@ OPT_RULESET_GROUPS['ru']['🇷🇺 blocked'] = {
     'default': 'on',
     'outbound': 'selector_out',
     'rules': [
-        'geoip/blocked@ru',
-        'geosite/blocked@ru',
+        'geoip:blocked@ru',
+        'geosite:blocked@ru',
     ],
 }
 ##end ru
