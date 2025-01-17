@@ -235,12 +235,15 @@ OPT_RULESET_GROUPS['cn'] = {
 ##end china
 
 ##start ru
-# OPT_RULESET_GROUPS['ru'] = OPT_RULESET_GROUPS['default'].copy()
-# OPT_RULESET_GROUPS['ru']['𐰁 antizapret'] = {
-#     'default': 'on',
-#     'outbound': 'selector_out',
-#     'rules': ['geosite:antizapret@ru'],
-# }
+OPT_RULESET_GROUPS['ru'] = OPT_RULESET_GROUPS['default'].copy()
+OPT_RULESET_GROUPS['ru']['🇷🇺 blocked'] = {
+    'default': 'on',
+    'outbound': 'selector_out',
+    'rules': [
+        'geoip/blocked@ru',
+        'geosite/blocked@ru',
+    ],
+}
 ##end ru
 
 ##start iran

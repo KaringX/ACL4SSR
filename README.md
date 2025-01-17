@@ -14,6 +14,8 @@
     - @VPNBrooklynSup (🧑🏻‍💻 پشتیبانی بروکلین «دریچه»)
 - [savely-krasovsky/antizapret-sing-box](https://github.com/savely-krasovsky/antizapret-sing-box/)
     - Lists of domain and IPs blocked in Russia in Rule Set form
+- [runetfreedom/russia-v2ray-rules-dat](https://github.com/runetfreedom/russia-v2ray-rules-dat)
+    - Этот репозиторий содержит автоматически обновляемые правила маршрутизации V2Ray, основанные на данных о заблокированных доменах и адресах в России.
 
 ## Welcome to submit your preferred rule-set
 - [submit your preferred rule-set](https://github.com/KaringX/karing-ruleset/issues/2)
@@ -26,7 +28,8 @@
 
 # GeoIP/GeoSite
 ## russia
-- howto use `antizapret.srs` in karing
+- howto use [runetfreedom/russia-v2ray-rules-dat](https://github.com/runetfreedom/russia-v2ray-rules-dat) or  [savely-krasovsky/antizapret-sing-box](https://github.com/savely-krasovsky/antizapret-sing-box/) in karing
+    - be like: `antizapret.srs`
     - Add New Diversion Group
         - -> fill in srs url
         - `https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs`
@@ -34,7 +37,21 @@
     - return to Diversion Rules Page, Custom Diversion Group
         - -> select the newly created Diversion Group
         - -> Action selection is `Current Select`
-    - **Note** due to the current large size of the SRS file (about 5MB), it should only be used on **Windows**, there is a possibility of exceeding the memory limit on Android and iOS.
+    - **Note** Please pay attention to the size of the SRS file, such as being greater than **3M**, it should only be used on **Windows**, there is a possibility of exceeding the memory limit on Android and iOS.
+
+- The source files of Iran come from **russia-v2ray-rules-dat**
+    ```
+    geoip/
+        blocked@ru.srs
+        blocked-community@ru.srs
+        re-filter@ru.srs
+
+    geosite
+        blocked@ru.srs
+        available-only-inside@ru.srs
+
+    ```
+
 
 
 ## iran
