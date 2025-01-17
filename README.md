@@ -25,12 +25,19 @@
     - [Improve domain suffix match behavior](https://github.com/SagerNet/sing/commit/4d96f15eca075f4b5535053304d54812fdfa96e0)
 
 # GeoIP/GeoSite
-- The srs files of Russia come from **savely-krasovsky**
-    ```
-    geosite
-        antizapret.srs
-    ```
+## russia
+- howto use `antizapret.srs` in karing
+    - Add New Diversion Group
+        - -> fill in srs url
+        - `https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs`
+        - -> save rule-set
+    - return to Diversion Rules Page, Custom Diversion Group
+        - -> select the newly created Diversion Group
+        - -> Action selection is `Current Select`
+    - **Note** due to the current large size of the SRS file (about 5MB), it should only be used on **Windows**, there is a possibility of exceeding the memory limit on Android and iOS.
 
+
+## iran
 - The source files of Iran come from **Chocolate4U**
     ```
     geoip/
@@ -80,6 +87,7 @@
 
     ```
 
+## description
 - geosite的一些说明:
     ```
     geosite:category-ads　包含了常见的广告域名。
