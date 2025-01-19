@@ -31,9 +31,8 @@ jobs:
           NO_SKIP: true
         run: |
           mkdir -p ./sing-rule/ACL4SSR/Ruleset
-          cp ./workflow/resouces/convert_* ./sing-rule/ACL4SSR/
-          cd sing-rule/ACL4SSR/ || exit 1
-          python convert_json.py ../../ACL4SSR/Clash ./
+          cd sing-rule || exit 1
+          python ../workflow/resouces/convert_json.py ../ACL4SSR/Clash ./ACL4SSR
 
       - name: Convert json to srs
         env:
@@ -41,8 +40,8 @@ jobs:
         run: |
           cd sing-rule || exit 1
           wget -q https://github.com/SagerNet/sing-box/releases/download/v1.10.7/sing-box-1.10.7-linux-amd64.tar.gz -O sing-box.tar.gz && tar zxvf sing-box.tar.gz && mv sing-box-1.10.7-linux-amd64/sing-box ./
-          chmod 755 sing-box ACL4SSR/convert_srs.sh && ./ACL4SSR/convert_srs.sh ./sing-box
-          rm -rf LICENSE README.md ACL4SSR/convert_*
+          chmod 755 sing-box
+          bash ../workflow/resouces/convert_srs.sh ./sing-box ./ACL4SSR
           cp ./ACL4SSR/Ruleset/*.srs ./ACL4SSR
 
       - name: Checkout meta-rules-dat
