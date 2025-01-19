@@ -48,7 +48,7 @@ OPT_RULESET_GROUPS['default'] = {
         'default': 'off',
         'outbound': 'block_out',
         'rules': [
-            'acl:BanAD',
+            # 'acl:BanAD',
             'geosite:category-ads',
         ],
     },
@@ -120,7 +120,7 @@ OPT_RULESET_GROUPS['cn'] = {
         'default': 'off',
         'outbound': 'block_out',
         'rules': [
-            'acl:BanAD',  # 3.7K
+            'acl:BanAD',  # 135K = adblockclashlite
             'geosite:category-ads',  # 6.0K
         ],
     },
@@ -236,7 +236,7 @@ OPT_RULESET_GROUPS['cn'] = {
 
 ##start ru
 OPT_RULESET_GROUPS['ru'] = OPT_RULESET_GROUPS['default'].copy()
-OPT_RULESET_GROUPS['ru']['🇷🇺 blocked'] = {
+OPT_RULESET_GROUPS['ru']['🇷🇺 antizapret'] = {
     'default': 'on',
     'outbound': 'selector_out',
     'rules': [

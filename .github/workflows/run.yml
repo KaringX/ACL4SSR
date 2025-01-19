@@ -72,6 +72,13 @@ jobs:
         run: |
           bash workflow/resouces/cn_adblockfilters.sh  ./sing-rule
 
+      - name: Checkout runetfreedom
+        uses: actions/checkout@v4
+        with:
+          repository: runetfreedom/russia-v2ray-rules-dat
+          path: runetfreedom
+          ref: release
+
       - name: RU antizapret
         env:
           NO_SKIP: true

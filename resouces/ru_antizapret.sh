@@ -23,8 +23,13 @@ target_dir="${work_dir}/russia"
 
     ## runetfreedom/russia-v2ray-rules-dat
 function clone_runetfreedom(){
-    git clone -b release --single-branch --depth=1 git@github.com:runetfreedom/russia-v2ray-rules-dat.git runetfreedom
-    rm -rf runetfreedom/.git
+    #git clone -b release --single-branch --depth=1 git@github.com:runetfreedom/russia-v2ray-rules-dat.git runetfreedom
+    gitclone_dir=$(dirname $work_dir)/runetfreedom
+    if [[ ! -d "$gitclone_dir" ]]; then
+        echo "${gitclone_dir} unkown directory"
+        exit -1
+    fi
+    cp -r $gitclone_dir . && rm -rf runetfreedom/.git
     cd runetfreedom/sing-box/
     cp rule-set-geoip/geoip-ru-blocked.srs $work_dir/geo/geoip/blocked@ru.srs
     cp rule-set-geoip/geoip-ru-blocked-community.srs $work_dir/geo/geoip/blocked-community@ru.srs
@@ -41,7 +46,7 @@ function download_antizapret(){
     file_array=("antizapret.srs" "antizapret.srs.sha256sum")
     for file in "${file_array[@]}"; do
         echo $file
-        wget --no-check-certificate -q --show-progress -T10 -t3 "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/${file}"
+        wget --no-check-certificate -q -T10 -t3 -O $file "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/${file}"
     done
 }
 

@@ -22,18 +22,56 @@ sing_exe="${work_dir}/sing-box"
 
 # ———————————————————————————————————————————————————————————————————————————————————————————————
 
+AD_KEYWORDS="# 广告关键词
+DOMAIN-KEYWORD,admarvel
+DOMAIN-KEYWORD,admaster
+DOMAIN-KEYWORD,adsage
+DOMAIN-KEYWORD,adsensor
+DOMAIN-KEYWORD,adsmogo
+DOMAIN-KEYWORD,adsrvmedia
+DOMAIN-KEYWORD,adsserving
+DOMAIN-KEYWORD,adsystem
+DOMAIN-KEYWORD,adwords
+DOMAIN-KEYWORD,applovin
+DOMAIN-KEYWORD,appsflyer
+DOMAIN-KEYWORD,domob
+DOMAIN-KEYWORD,duomeng
+DOMAIN-KEYWORD,dwtrack
+DOMAIN-KEYWORD,guanggao
+DOMAIN-KEYWORD,omgmta
+DOMAIN-KEYWORD,omniture
+DOMAIN-KEYWORD,openx
+DOMAIN-KEYWORD,partnerad
+DOMAIN-KEYWORD,pingfore
+DOMAIN-KEYWORD,socdm
+DOMAIN-KEYWORD,supersonicads
+DOMAIN-KEYWORD,wlmonitor
+DOMAIN-KEYWORD,zjtoolbar
+"
+
+# ———————————————————————————————————————————————————————————————————————————————————————————————
+
+
 function download_adblockfilters() {
     mkdir -p $target_dir/adblockfilters
     cd $target_dir/adblockfilters/
 
     file_array=("AdGuard_Base_filter.txt" "AdGuard_Chinese_filter.txt" "AdGuard_DNS_filter.txt" "AdGuard_Mobile_Ads_filter.txt" "adblockclashlite.list" "adblockclash.list")
     for file in "${file_array[@]}"; do
-        wget --no-check-certificate -q --show-progress -T10 -t3 -O $file "https://github.com/217heidai/adblockfilters/raw/refs/heads/main/rules/${file}"
+        # --show-progress
+        wget --no-check-certificate -q -T10 -t3 -O $file "https://github.com/217heidai/adblockfilters/raw/refs/heads/main/rules/${file}"
 
         if [[ "$file" == *.list ]]; then
-
             basename=${file%.list}
             echo "source << ${basename}"
+
+            # ad keys
+            if [[ "$file" == "adblockclashlite.list" ]]; then
+                echo "$AD_KEYWORDS" > temp_file && cat "$file" >> temp_file
+                mv temp_file "$file"
+                # echo "$AD_KEYWORDS" >> $file
+            fi
+
             #convert to json
             python $CURRENT_DIR/convert_json.py --single  $target_dir/adblockfilters/$file $basename.json
 
