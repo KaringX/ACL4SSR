@@ -158,7 +158,7 @@ OPT_RULESET_GROUPS['cn'] = {
         'outbound': 'direct_out',
         'rules': [
             'geosite:apple',
-            'geosite:apple-ads',
+            # 'geosite:apple-ads',
             'geosite:apple-dev',
             'geosite:apple-pki',
             'geosite:apple-update',
