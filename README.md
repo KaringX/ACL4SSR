@@ -39,7 +39,7 @@
         - -> Action selection is `Current Select`
     - **Note** Please pay attention to the size of the SRS file, such as being greater than **3M**, it should only be used on **Windows**, there is a possibility of exceeding the memory limit on Android and iOS.
 
-- The source files of Iran come from **russia-v2ray-rules-dat**
+- The source files about Russia are from **russia-v2ray-rules-dat**
     ```
     geoip/
         blocked@ru.srs
@@ -55,7 +55,7 @@
 
 
 ## iran
-- The source files of Iran come from **Chocolate4U**
+- The source files about Iran come from **Chocolate4U**
     ```
     geoip/
         amazon.srs
