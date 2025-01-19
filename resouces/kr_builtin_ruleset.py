@@ -120,7 +120,7 @@ OPT_RULESET_GROUPS['cn'] = {
         'default': 'off',
         'outbound': 'block_out',
         'rules': [
-            'acl:BanAD',  # 135K = adblockclashlite
+            'acl:BanAD',  # 49K = adblockclashlite + BanAD
             'geosite:category-ads',  # 6.0K
         ],
     },
