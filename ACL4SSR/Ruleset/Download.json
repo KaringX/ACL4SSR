@@ -1,0 +1,1 @@
+{"version": 1, "rules": [{"domain_keyword": ["aria2"], "domain_suffix": ["smtp"], "process_name": ["DownloadService.exe", "Folx.exe", "NetTransport.exe", "Thunder.exe", "Transmission.exe", "WebTorrent Helper.exe", "WebTorrent.exe", "Weiyun.exe", "aria2c.exe", "baidunetdisk.exe", "fdm.exe", "qbittorrent.exe", "uTorrent.exe"]}]}

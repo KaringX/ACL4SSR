@@ -1,0 +1,268 @@
+{
+    "rule_set": [
+        {
+            "tag": "acl:BanAD",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/BanAD.srs"
+        },
+        {
+            "tag": "geosite:category-ads",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/category-ads.srs"
+        },
+        {
+            "tag": "acl:BanProgramAD",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/BanProgramAD.srs"
+        },
+        {
+            "tag": "acl:BanADCompany",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/BanADCompany.srs"
+        },
+        {
+            "tag": "geoip:bing",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/bing.srs"
+        },
+        {
+            "tag": "geosite:bing",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/bing.srs"
+        },
+        {
+            "tag": "geosite:onedrive",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/onedrive.srs"
+        },
+        {
+            "tag": "geosite:microsoft",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/microsoft.srs"
+        },
+        {
+            "tag": "geosite:microsoft-dev",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/microsoft-dev.srs"
+        },
+        {
+            "tag": "geosite:microsoft-pki",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/microsoft-pki.srs"
+        },
+        {
+            "tag": "geosite:apple-cn",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/apple-cn.srs"
+        },
+        {
+            "tag": "geosite:apple@cn",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/apple@cn.srs"
+        },
+        {
+            "tag": "geosite:google",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/google.srs"
+        },
+        {
+            "tag": "geoip:google",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/google.srs"
+        },
+        {
+            "tag": "acl:GoogleFCM",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/GoogleFCM.srs"
+        },
+        {
+            "tag": "geoip:telegram",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/telegram.srs"
+        },
+        {
+            "tag": "geosite:telegram",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/telegram.srs"
+        },
+        {
+            "tag": "geoip:openai",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/openai.srs"
+        },
+        {
+            "tag": "geosite:openai",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/openai.srs"
+        },
+        {
+            "tag": "geoip:github",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/github.srs"
+        },
+        {
+            "tag": "geosite:github",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/github.srs"
+        },
+        {
+            "tag": "acl:Epic",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Epic.srs"
+        },
+        {
+            "tag": "acl:Origin",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Origin.srs"
+        },
+        {
+            "tag": "acl:Sony",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Sony.srs"
+        },
+        {
+            "tag": "acl:Steam",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Steam.srs"
+        },
+        {
+            "tag": "acl:Nintendo",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Nintendo.srs"
+        },
+        {
+            "tag": "geosite:tiktok",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/tiktok.srs"
+        },
+        {
+            "tag": "geosite:instagram",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/instagram.srs"
+        },
+        {
+            "tag": "geosite:youtube",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/youtube.srs"
+        },
+        {
+            "tag": "geoip:netflix",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/netflix.srs"
+        },
+        {
+            "tag": "geosite:netflix",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/netflix.srs"
+        },
+        {
+            "tag": "acl:BilibiliHMT",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/BilibiliHMT.srs"
+        },
+        {
+            "tag": "acl:Bilibili",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Bilibili.srs"
+        },
+        {
+            "tag": "acl:NetEaseMusic",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/NetEaseMusic.srs"
+        },
+        {
+            "tag": "acl:ChinaIp",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/ChinaIp.srs"
+        },
+        {
+            "tag": "acl:ChinaDomain",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/ChinaDomain.srs"
+        },
+        {
+            "tag": "acl:ChinaCompanyIp",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/ChinaCompanyIp.srs"
+        },
+        {
+            "tag": "acl:UnBan",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/UnBan.srs"
+        },
+        {
+            "tag": "acl:SteamCN",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/SteamCN.srs"
+        },
+        {
+            "tag": "acl:Download",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Download.srs"
+        },
+        {
+            "tag": "acl:ChinaMedia",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/ChinaMedia.srs"
+        },
+        {
+            "tag": "geosite:geolocation-!cn",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/geolocation-!cn.srs"
+        },
+        {
+            "tag": "acl:ProxyGFWlist",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/ProxyGFWlist.srs"
+        },
+        {
+            "tag": "acl:ProxyMedia",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/ProxyMedia.srs"
+        }
+    ]
+}

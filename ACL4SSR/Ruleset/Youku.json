@@ -1,0 +1,1 @@
+{"version": 1, "rules": [{"domain_suffix": ["youku.com"], "ip_cidr": ["106.11.0.0/16"]}]}

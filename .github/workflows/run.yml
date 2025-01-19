@@ -1,0 +1,135 @@
+name: Convert other rules to sing-box rule set
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 14 * * *" # 6:30 AM UTC+8
+  push:
+    branches:
+      - workflow
+    paths-ignore:
+      - "**/README.md"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout scripts
+        uses: actions/checkout@v4
+        with:
+          repository: KaringX/karing-ruleset
+          path: workflow
+          ref: workflow
+
+      - name: Checkout ACL4SSR
+        uses: actions/checkout@v4
+        with:
+          repository: ACL4SSR/ACL4SSR
+          path: ACL4SSR
+          ref: master
+
+      - name: Convert json files
+        env:
+          NO_SKIP: true
+        run: |
+          mkdir -p ./sing-rule/ACL4SSR/Ruleset
+          cd sing-rule || exit 1
+          python ../workflow/resouces/convert_json.py ../ACL4SSR/Clash ./ACL4SSR
+
+      - name: Convert json to srs
+        env:
+          NO_SKIP: true
+        run: |
+          cd sing-rule || exit 1
+          wget -q https://github.com/SagerNet/sing-box/releases/download/v1.10.7/sing-box-1.10.7-linux-amd64.tar.gz -O sing-box.tar.gz && tar zxvf sing-box.tar.gz && mv sing-box-1.10.7-linux-amd64/sing-box ./
+          chmod 755 sing-box
+          bash ../workflow/resouces/convert_srs.sh ./sing-box ./ACL4SSR
+          cp ./ACL4SSR/Ruleset/*.srs ./ACL4SSR
+
+      - name: Checkout meta-rules-dat
+        uses: actions/checkout@v4
+        with:
+          repository: MetaCubeX/meta-rules-dat
+          path: meta-rules-dat
+          ref: sing
+
+      - name: Checkout Iran-sing-box-rules
+        uses: actions/checkout@v4
+        with:
+          repository: Chocolate4U/Iran-sing-box-rules
+          path: Iran-sing-box-rules
+          ref: rule-set
+
+      - name: IR copy geo rules
+        env:
+          NO_SKIP: true
+        run: |
+          cd sing-rule || exit 1
+          cp -r ../meta-rules-dat/geo ./
+          bash ../workflow/resouces/merge_geo_ir.sh  ./geo  ../Iran-sing-box-rules/
+
+      - name: CN adblockfilters
+        env:
+          NO_SKIP: true
+        run: |
+          bash workflow/resouces/cn_adblockfilters.sh  ./sing-rule
+
+      - name: Checkout runetfreedom
+        uses: actions/checkout@v4
+        with:
+          repository: runetfreedom/russia-v2ray-rules-dat
+          path: runetfreedom
+          ref: release
+
+      - name: RU antizapret
+        env:
+          NO_SKIP: true
+        run: |
+          bash workflow/resouces/ru_antizapret.sh  ./sing-rule
+
+      - name: maker karing built-in rule-set group
+        env:
+          NO_SKIP: true
+        run: |
+          mkdir -p ./sing-rule/recommend
+          python workflow/resouces/kr_builtin_ruleset.py ./sing-rule/
+
+#      - name: convert AdGuardSDNSFilter to srs
+#        env:
+#          NO_SKIP: true
+#        run: |
+#          python workflow/resouces/convert_adguard.py ./sing-rule/
+#
+      - name: rm sing-box files
+        env:
+          NO_SKIP: true
+        run: |
+          cd sing-rule || exit 1
+          rm -rf sing-box* LICENSE README.md
+
+      - name: Git push assets to "sing-rule" branch
+        run: |
+          cd sing-rule || exit 1
+          cp ../workflow/README.md . && cp -r ../workflow/.github .
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b sing
+          git add .
+          git commit -m "Released on ${{ env.BUILDTIME }}"
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f -u origin sing
+
+      - name: Purge jsdelivr CDN
+        # find . -type f \( -name "*.json" -o -name "*.srs" \) -printf "%P\n" | while read file; do
+        #   curl -i -Ls "https://purge.jsdelivr.net/gh/${{ github.repository }}@sing/${file}"
+        #   echo -e "\t${file} PURGE...\n"
+        # done
+        run: |
+          cd sing-rule/ || exit 1
+          for file in $(ls); do
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@sing/${file}"
+          done
+          curl -i -Ls "https://purge.jsdelivr.net/gh/KaringX/karing-ruleset@sing/ACL4SSR"
+          curl -i -Ls "https://purge.jsdelivr.net/gh/KaringX/karing-ruleset@sing/ACL4SSR/Ruleset"
+          curl -i -Ls "https://purge.jsdelivr.net/gh/KaringX/karing-ruleset@sing/geo/geoip"
+          curl -i -Ls "https://purge.jsdelivr.net/gh/KaringX/karing-ruleset@sing/geo/geosite"
+

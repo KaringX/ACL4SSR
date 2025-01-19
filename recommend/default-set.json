@@ -1,0 +1,220 @@
+{
+    "rule_set": [
+        {
+            "tag": "geosite:category-ads",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/category-ads.srs"
+        },
+        {
+            "tag": "acl:BanProgramAD",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/BanProgramAD.srs"
+        },
+        {
+            "tag": "acl:BanADCompany",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/BanADCompany.srs"
+        },
+        {
+            "tag": "geosite:malware",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/malware.srs"
+        },
+        {
+            "tag": "geoip:malware",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/malware.srs"
+        },
+        {
+            "tag": "geoip:phishing",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/phishing.srs"
+        },
+        {
+            "tag": "geosite:phishing",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/phishing.srs"
+        },
+        {
+            "tag": "geosite:cryptominers",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/cryptominers.srs"
+        },
+        {
+            "tag": "geoip:bing",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/bing.srs"
+        },
+        {
+            "tag": "geosite:bing",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/bing.srs"
+        },
+        {
+            "tag": "geosite:onedrive",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/onedrive.srs"
+        },
+        {
+            "tag": "geosite:microsoft",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/microsoft.srs"
+        },
+        {
+            "tag": "geosite:microsoft-dev",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/microsoft-dev.srs"
+        },
+        {
+            "tag": "geosite:microsoft-pki",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/microsoft-pki.srs"
+        },
+        {
+            "tag": "geosite:apple",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/apple.srs"
+        },
+        {
+            "tag": "geosite:apple-dev",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/apple-dev.srs"
+        },
+        {
+            "tag": "geosite:apple-pki",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/apple-pki.srs"
+        },
+        {
+            "tag": "geosite:apple-update",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/apple-update.srs"
+        },
+        {
+            "tag": "geosite:google",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/google.srs"
+        },
+        {
+            "tag": "geoip:google",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/google.srs"
+        },
+        {
+            "tag": "geosite:tiktok",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/tiktok.srs"
+        },
+        {
+            "tag": "geosite:instagram",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/instagram.srs"
+        },
+        {
+            "tag": "geosite:youtube",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/youtube.srs"
+        },
+        {
+            "tag": "geoip:netflix",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/netflix.srs"
+        },
+        {
+            "tag": "geosite:netflix",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/netflix.srs"
+        },
+        {
+            "tag": "geoip:telegram",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/telegram.srs"
+        },
+        {
+            "tag": "geosite:telegram",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/telegram.srs"
+        },
+        {
+            "tag": "geoip:openai",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/openai.srs"
+        },
+        {
+            "tag": "geosite:openai",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/openai.srs"
+        },
+        {
+            "tag": "geoip:github",
+            "type": "local",
+            "format": "binary",
+            "path": "geoip/github.srs"
+        },
+        {
+            "tag": "geosite:github",
+            "type": "local",
+            "format": "binary",
+            "path": "geosite/github.srs"
+        },
+        {
+            "tag": "acl:Epic",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Epic.srs"
+        },
+        {
+            "tag": "acl:Origin",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Origin.srs"
+        },
+        {
+            "tag": "acl:Sony",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Sony.srs"
+        },
+        {
+            "tag": "acl:Steam",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Steam.srs"
+        },
+        {
+            "tag": "acl:Nintendo",
+            "type": "local",
+            "format": "binary",
+            "path": "acl/Nintendo.srs"
+        }
+    ]
+}

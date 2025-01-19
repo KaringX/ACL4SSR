@@ -1,0 +1,1 @@
+{"version": 1, "rules": [{"domain_keyword": ["openai"], "domain_suffix": ["auth0.com", "challenges.cloudflare.com", "chatgpt.com", "client-api.arkoselabs.com", "events.statsigapi.net", "featuregates.org", "identrust.com", "intercom.io", "intercomcdn.com", "oaistatic.com", "oaiusercontent.com", "openai.com", "openaiapi-site.azureedge.net", "sentry.io", "stripe.com"]}]}

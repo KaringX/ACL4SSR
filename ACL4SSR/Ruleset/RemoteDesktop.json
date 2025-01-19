@@ -1,0 +1,1 @@
+{"version": 1, "rules": [{"process_name": ["devcon.exe", "DriverInstaller.exe", "CrashReport.exe", "SunloginClient.exe", "ToDesk_Setup.exe", "ToDesk_Session.exe", "ToDesk_Service.exe", "ToDesk.exe", "mstsc.exe"]}]}
