@@ -3,6 +3,7 @@ import sys
 import os
 import json
 import requests
+from helper.helper import debug_log as deug_log
 
 MAP_RULES_KEY_DICT = {
     'IP-CIDR': 'ip_cidr',
@@ -22,9 +23,9 @@ ADDON_ADBLOCK_DOMAINS = {
 }
 
 
-def deug_log(msg: str):
-    print(msg)
-    pass
+# def deug_log(msg: str):
+#     print(msg)
+#     pass
 
 
 def main(src_path: str, out_path: str = None):
@@ -121,7 +122,7 @@ def converto_json(src_file: str, out_path: str):
     out_file = os.path.join(out_path, os.path.basename(splits[0]) + ".json")
     content = read_rules_from_file(src_file)
     if content is None:
-        return
+        return False
 
     return writeto_rulefile(out_file, content)
     # END converto_josn
@@ -132,6 +133,8 @@ def writeto_rulefile(out_file: str, content: dict):
     with open(out_file, "w") as json_file:
         json_file.write(json_string)
         deug_log(f"wirte to {out_file}")
+        return True
+    return False
 
 
 ## Addon
@@ -183,6 +186,15 @@ def extract_strings_from_dict(data_dict, my_dict=None):
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python script.py <first_parameter> <second_parameter>")
+
+    elif sys.argv[1] == "--single":
+        src_file = sys.argv[2]
+        out_path = os.path.dirname(src_file)
+        content = converto_json(src_file, out_path)
+        if content is False:
+            deug_log(f"src file:{src_file} empty")
+            exit(-1)
+
     else:
         src_path = get_out_path(sys.argv[1])
         out_path = get_out_path(sys.argv[2])

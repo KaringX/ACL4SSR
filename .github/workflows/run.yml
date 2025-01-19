@@ -40,7 +40,7 @@ jobs:
           NO_SKIP: true
         run: |
           cd sing-rule || exit 1
-          wget -q https://github.com/SagerNet/sing-box/releases/download/v1.10.0-beta.4/sing-box-1.10.0-beta.4-linux-amd64.tar.gz -O sing-box.tar.gz && tar zxvf sing-box.tar.gz && mv sing-box-1.10.0-beta.4-linux-amd64/sing-box ./
+          wget -q https://github.com/SagerNet/sing-box/releases/download/v1.10.7/sing-box-1.10.7-linux-amd64.tar.gz -O sing-box.tar.gz && tar zxvf sing-box.tar.gz && mv sing-box-1.10.7-linux-amd64/sing-box ./
           chmod 755 sing-box ACL4SSR/convert_srs.sh && ./ACL4SSR/convert_srs.sh ./sing-box
           rm -rf LICENSE README.md ACL4SSR/convert_*
           cp ./ACL4SSR/Ruleset/*.srs ./ACL4SSR
@@ -66,6 +66,12 @@ jobs:
           cd sing-rule || exit 1
           cp -r ../meta-rules-dat/geo ./
           bash ../workflow/resouces/merge_geo_ir.sh  ./geo  ../Iran-sing-box-rules/
+
+      - name: CN adblockfilters
+        env:
+          NO_SKIP: true
+        run: |
+          bash ../workflow/resouces/cn_adblockfilters.sh  ./sing-rule
 
       - name: RU antizapret
         env:

@@ -16,6 +16,9 @@ if [ ! -d "$target_dir" ]; then
     exit 1
 fi
 
+work_dir=$(realpath "$target_dir")
+target_dir="${work_dir}/russia"
+
 # ———————————————————————————————————————————————————————————————————————————————————————————————
 
     ## runetfreedom/russia-v2ray-rules-dat
@@ -37,14 +40,12 @@ function download_antizapret(){
 
     file_array=("antizapret.srs" "antizapret.srs.sha256sum")
     for file in "${file_array[@]}"; do
-    echo $file
-    wget --no-check-certificate -q --show-progress -T10 -t3 "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/${file}"
+        echo $file
+        wget --no-check-certificate -q --show-progress -T10 -t3 "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/${file}"
     done
 }
 
 # ———————————————————————————————————————————————————————————————————————————————————————————————
-work_dir=$(realpath "$target_dir")
-target_dir="${work_dir}/russia"
 
 rm -rf $target_dir ; mkdir $target_dir ; cd $target_dir
 echo "start<= ${target_dir}"
