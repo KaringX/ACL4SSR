@@ -70,13 +70,13 @@ jobs:
         env:
           NO_SKIP: true
         run: |
-          bash ../workflow/resouces/cn_adblockfilters.sh  ./sing-rule
+          bash workflow/resouces/cn_adblockfilters.sh  ./sing-rule
 
       - name: RU antizapret
         env:
           NO_SKIP: true
         run: |
-          bash ../workflow/resouces/ru_antizapret.sh  ./sing-rule
+          bash workflow/resouces/ru_antizapret.sh  ./sing-rule
 
       - name: maker karing built-in rule-set group
         env:
