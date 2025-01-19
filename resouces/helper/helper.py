@@ -78,6 +78,16 @@ def remove_ansi_escape_codes(text: str) -> str:
     return ansi_escape.sub('', text)
 
 
+def is_url(string):
+    pattern = re.compile(
+        r'^(https?://)?'  # http:// 或 https://（可选）
+        r'([a-zA-Z0-9_-]+\.)+[a-zA-Z]{2,6}'  # 域名部分
+        r'(:[0-9]{1,5})?'  # 端口号（可选）
+        r'(/.*)?$'  # 路径部分（可选）
+    )
+    return bool(pattern.match(string))
+
+
 if __name__ == '__main__':
     # text = "example  string//with spaces---and////slashes"
     text = 'uBlock-filters-–-Resource-abuse-'

@@ -67,18 +67,11 @@ jobs:
           cp -r ../meta-rules-dat/geo ./
           bash ../workflow/resouces/merge_geo_ir.sh  ./geo  ../Iran-sing-box-rules/
 
-      - name: RU copy geo rules
+      - name: RU antizapret
         env:
           NO_SKIP: true
         run: |
-          cd sing-rule || exit 1
-          curl -o geo/geoip/blocked@ru.srs                  -sSL https://github.com/runetfreedom/russia-v2ray-rules-dat/raw/refs/heads/release/sing-box/rule-set-geoip/geoip-ru-blocked.srs
-          curl -o geo/geoip/blocked-community@ru.srs        -sSL https://github.com/runetfreedom/russia-v2ray-rules-dat/raw/refs/heads/release/sing-box/rule-set-geoip/geoip-ru-blocked-community.srs
-          curl -o geo/geoip/re-filter@ru.srs                -sSL https://github.com/runetfreedom/russia-v2ray-rules-dat/raw/refs/heads/release/sing-box/rule-set-geoip/geoip-re-filter.srs
-          curl -o geo/geosite/blocked@ru.srs             -sSL https://github.com/runetfreedom/russia-v2ray-rules-dat/raw/refs/heads/release/sing-box/rule-set-geosite/geosite-ru-blocked.srs
-          curl -o geo/geosite/available-only-inside@ru.srs  -sSL https://github.com/runetfreedom/russia-v2ray-rules-dat/raw/refs/heads/release/sing-box/rule-set-geosite/geosite-ru-available-only-inside.srs
-      #     curl -o geo/geosite/antizapret@ru.srs -sSL https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs
-
+          bash ../workflow/resouces/ru_antizapret.sh  ./sing-rule
 
       - name: maker karing built-in rule-set group
         env:
@@ -87,12 +80,12 @@ jobs:
           mkdir -p ./sing-rule/recommend
           python workflow/resouces/kr_builtin_ruleset.py ./sing-rule/
 
-      - name: convert AdGuardSDNSFilter to srs
-        env:
-          NO_SKIP: true
-        run: |
-          python workflow/resouces/convert_adguard.py ./sing-rule/
-
+#      - name: convert AdGuardSDNSFilter to srs
+#        env:
+#          NO_SKIP: true
+#        run: |
+#          python workflow/resouces/convert_adguard.py ./sing-rule/
+#
       - name: rm sing-box files
         env:
           NO_SKIP: true
